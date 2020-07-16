@@ -1,13 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TasksPage from './components/TasksPage';
 
-function App() {
+function App(props) {
   return (
     <>
-      <TasksPage />
+      <TasksPage tasks={props.tasks} />
     </>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    tasks: state.tasks,
+  };
+};
+
+export default connect(mapStateToProps)(App);
