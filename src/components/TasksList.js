@@ -1,9 +1,12 @@
 import React from 'react';
+import Task from './Task';
 
-const TasksList = () => {
+const TasksList = (props) => {
   return (
     <div>
-      <h2>TasksList Component</h2>
+      {props.tasks.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import TasksList from './TasksList';
 
 const TASKS_STATUSES = ['Unstarted', 'In Progress', 'Completed'];
 
-const TasksPage = () => {
+const TasksPage = (props) => {
   const [cardForm, showCardForm] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -19,7 +20,17 @@ const TasksPage = () => {
     showCardForm(!cardForm);
   };
 
-  const renderTaskLists = () => {};
+  const renderTaskLists = () => {
+    const { tasks } = props;
+    return TASKS_STATUSES.map((status, id) => {
+      const statusTasks = tasks.filter((task) => task.status === status);
+      return (
+        <div key={id}>
+          <TasksList key={status} status={status} tasks={statusTasks} />
+        </div>
+      );
+    });
+  };
 
   return (
     <div className='container my-5'>
@@ -60,6 +71,12 @@ const TasksPage = () => {
             </button>
           </form>
         )}
+      </div>
+      <div
+        className='row d-flex justify-content-center position-relative'
+        style={{ background: '#e9ecef' }}
+      >
+        {renderTaskLists()}
       </div>
     </div>
   );

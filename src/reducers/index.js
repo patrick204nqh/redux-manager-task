@@ -13,6 +13,8 @@ const initialState = [
   },
 ];
 
-const tasks = (state = {tasks: initialState}, action) {
+const tasks = (state = { tasks: initialState }, action) => {
   return state;
-}
+};
+
+export default tasks;

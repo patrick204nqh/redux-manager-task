@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Task = () => {
+const Task = (props) => {
   return (
     <div>
-      <h2>Task Component!!!</h2>
+      <h2>{props.task.title}</h2>
+      <p>{props.task.description}</p>
     </div>
   );
 };
