@@ -1,7 +1,13 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TasksPage from './components/TasksPage';
 
 function App() {
-  return <>Hello from App component!!!</>;
+  return (
+    <>
+      <TasksPage />
+    </>
+  );
 }
 
 export default App;
