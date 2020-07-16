@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const TASKS_STATUSES = ['Unstarted', 'In Progress', 'Completed'];
+
 const TasksPage = () => {
   const [cardForm, showCardForm] = useState(false);
   const [title, setTitle] = useState('');
@@ -9,9 +11,16 @@ const TasksPage = () => {
     setTitle(e.target.value);
   };
 
+  const onDescriptionChange = (e) => {
+    setDescription(e.target.value);
+  };
+
   const formToggler = () => {
     showCardForm(!cardForm);
   };
+
+  const renderTaskLists = () => {};
+
   return (
     <div className='container my-5'>
       <div className='jumbotron py-3'>
@@ -43,6 +52,7 @@ const TasksPage = () => {
                 type='text'
                 className='form-control'
                 placeholder='Task Description'
+                onChange={onDescriptionChange}
               ></textarea>
             </div>
             <button type='submit' className='btn btn-primary'>
