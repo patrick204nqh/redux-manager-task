@@ -46,6 +46,7 @@ const TasksPage = (props) => {
             status={status}
             tasks={statusTasks}
             onStatusChange={props.onStatusChange}
+            onRemoveTask={props.onRemoveTask}
           />
         </div>
       );
