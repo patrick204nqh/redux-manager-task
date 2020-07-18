@@ -3,9 +3,13 @@ import React from 'react';
 const TASKS_STATUSES = ['Unstarted', 'In Progress', 'Completed'];
 
 const Task = (props) => {
+  function onStatusChange(e) {
+    props.onStatusChange(props.task.id, e.target.value);
+  }
+
   return (
     <>
-      <form>
+      <form onChange={onStatusChange}>
         <select defaultValue={props.task.status}>
           {TASKS_STATUSES.map((status) => (
             <option value={status} key={status}>

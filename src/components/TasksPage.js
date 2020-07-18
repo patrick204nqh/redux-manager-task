@@ -20,13 +20,26 @@ const TasksPage = (props) => {
     showCardForm(!cardForm);
   };
 
+  const onCreateTask = (e) => {
+    e.preventDefault();
+    props.onCreateTask({
+      title,
+      description,
+    });
+  };
+
   const renderTaskLists = () => {
     const { tasks } = props;
     return TASKS_STATUSES.map((status, id) => {
       const statusTasks = tasks.filter((task) => task.status === status);
       return (
         <div className='col-md-3 card m-2 p-0' key={id}>
-          <TasksList key={status} status={status} tasks={statusTasks} />
+          <TasksList
+            key={status}
+            status={status}
+            tasks={statusTasks}
+            onStatusChange={props.onStatusChange}
+          />
         </div>
       );
     });
@@ -49,7 +62,7 @@ const TasksPage = (props) => {
         </div>
         {/* Inputs Form */}
         {cardForm && (
-          <form>
+          <form onSubmit={onCreateTask}>
             <div className='form-group'>
               <input
                 type='text'
