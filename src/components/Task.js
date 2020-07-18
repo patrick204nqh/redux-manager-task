@@ -8,7 +8,9 @@ const Task = (props) => {
       <form>
         <select defaultValue={props.task.status}>
           {TASKS_STATUSES.map((status) => (
-            <option value={status} key={status} />
+            <option value={status} key={status}>
+              {status}
+            </option>
           ))}
         </select>
       </form>
