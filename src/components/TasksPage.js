@@ -25,7 +25,7 @@ const TasksPage = (props) => {
     return TASKS_STATUSES.map((status, id) => {
       const statusTasks = tasks.filter((task) => task.status === status);
       return (
-        <div key={id}>
+        <div className='col-md-3 card m-2 p-0' key={id}>
           <TasksList key={status} status={status} tasks={statusTasks} />
         </div>
       );
