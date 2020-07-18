@@ -20,12 +20,19 @@ const TasksPage = (props) => {
     showCardForm(!cardForm);
   };
 
+  const resetForm = () => {
+    setTitle('');
+    setDescription('');
+    showCardForm(false);
+  };
+
   const onCreateTask = (e) => {
     e.preventDefault();
     props.onCreateTask({
       title,
       description,
     });
+    resetForm();
   };
 
   const renderTaskLists = () => {
